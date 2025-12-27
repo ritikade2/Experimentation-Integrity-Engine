@@ -45,7 +45,7 @@ class ExpDailySchema(BaseModel):
         "experiment_id",
         "date",
         "variant_assigned",
-        "assined_users",
+        "assigned_users",
         "conversions",
     ])
     optional: List[str] = Field(default_factory= lambda: [
@@ -224,7 +224,7 @@ def validate_exp_daily(df_raw: pd.DataFrame, schema: Optional[ExpDailySchema] = 
             code = "MISSING_REQUIRED_COLUMNS",
             message = f"Missing required columns: {missing}",
         ))
-        return df, ValidationErrorItem(ok = False, errors = errors, warnings = warnings)
+        return df, ValidationResult(ok = False, errors = errors, warnings = warnings)
 
     df["variant_assigned"] = df["variant_assigned"].astype(str).str.upper().str.strip()
     okv, msg = _validate_variants(df["variant_assigned"], schema.allowed_variants)
@@ -244,7 +244,7 @@ def validate_exp_daily(df_raw: pd.DataFrame, schema: Optional[ExpDailySchema] = 
     
     # numeric counts 
     for col in ["assigned_users", "conversions"]:
-        df[col] = d=pd.to_numeric(df[col], errors = 'coerce')
+        df[col] = pd.to_numeric(df[col], errors = 'coerce')
         if df[col].isna().any():
             errors.append(ValidationErrorItem(
                 code = "BAD_NUMERIC",
