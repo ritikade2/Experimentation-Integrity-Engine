@@ -1,6 +1,7 @@
 # Experimentation Integrity Engine (EIE)
 
 **Audits experiment systems - not KPI lift.**
+
 The Experimentation Integrity Engine (EIE) evaluates whether experiment's results are *methodologically thrustworthy* before anyone interprets statistical outcomes or declares winners. 
 
 Instead of answering:
