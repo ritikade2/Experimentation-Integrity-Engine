@@ -1,5 +1,10 @@
 # Experimentation Integrity Engine (EIE)
 
+## Publication
+
+De, R. (2026). Experimentation Integrity Engine: Auditing A/B Test Reliability Before Interpretation. Zenodo. https://doi.org/10.5281/zenodo.20518838
+
+
 **Audits experiment systems - not KPI lift.**
 
 The Experimentation Integrity Engine (EIE) evaluates whether experiment's results are *methodologically thrustworthy* before anyone interprets statistical outcomes or declares winners. 
